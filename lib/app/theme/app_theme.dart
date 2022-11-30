@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
 
+//Tema padrão
+
 ThemeData appThemeData = ThemeData(
-    primaryColor: const Color(0xFF9747FF),
-    textTheme: const TextTheme(
-        titleLarge: TextStyle(
-          color: Colors.white,
-          fontSize: 40,
-          fontWeight: FontWeight.bold,
+  primaryColor: const Color(0xFF9747FF),
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(
+      color: Colors.white,
+      fontSize: 40,
+      fontWeight: FontWeight.bold,
+    ),
+    titleMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 25,
+    ),
+  ),
+  backgroundColor: Colors.white,
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
-        titleMedium: TextStyle(
-          color: Colors.white,
-          fontSize: 25,
+        elevation: const MaterialStatePropertyAll(0),
+        backgroundColor: const MaterialStatePropertyAll(
+          Color(0xFF9747FF),
+        ),
+        textStyle: const MaterialStatePropertyAll(
+          TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         )),
-    backgroundColor: Colors.white,
-    elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10))),
-            elevation: const MaterialStatePropertyAll(0),
-            backgroundColor:
-                const MaterialStatePropertyAll(Color(0xFF9747FF)))));
+  ),
+);
