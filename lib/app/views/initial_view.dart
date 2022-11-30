@@ -66,7 +66,6 @@ class InitialView extends StatelessWidget {
                               onPressed: () => null,
                               child: const Text(
                                 'Criar uma conta',
-                                style: TextStyle(fontSize: 18),
                               )),
                         )
                       ]),
