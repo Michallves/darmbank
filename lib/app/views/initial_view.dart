@@ -63,13 +63,21 @@ class InitialView extends StatelessWidget {
                         Container(
                           height: 50,
                           width: double.infinity,
-                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                           child: ElevatedButton(
                               onPressed: () => Get.toNamed(Routes.INITIAL),
                               child: const Text(
                                 'Criar uma conta',
                               )),
-                        )
+                        ),
+                        TextButton(
+                          onPressed: () => null,
+                          child: const Text('Já possui conta?'),
+                        ),
+                        TextButton(
+                          onPressed: () => null,
+                          child: const Text('Entrar como adm'),
+                        ),
                       ]),
                 ),
               )
