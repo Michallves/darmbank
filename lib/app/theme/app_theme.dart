@@ -16,6 +16,7 @@ ThemeData appThemeData = ThemeData(
     ),
   ),
   backgroundColor: Colors.white,
+  
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
         shape: MaterialStatePropertyAll(

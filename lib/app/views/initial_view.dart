@@ -1,4 +1,6 @@
+import 'package:darmbank/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InitialView extends StatelessWidget {
   const InitialView({super.key});
@@ -63,7 +65,7 @@ class InitialView extends StatelessWidget {
                           width: double.infinity,
                           margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                           child: ElevatedButton(
-                              onPressed: () => null,
+                              onPressed: () => Get.toNamed(Routes.INITIAL),
                               child: const Text(
                                 'Criar uma conta',
                               )),
