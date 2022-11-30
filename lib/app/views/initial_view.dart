@@ -1,45 +1,80 @@
 import 'package:flutter/material.dart';
 
-class InitialView extends StatefulWidget {
+class InitialView extends StatelessWidget {
   const InitialView({super.key});
-
-  @override
-  State<InitialView> createState() => _InitialViewState();
-}
-
-class _InitialViewState extends State<InitialView> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Initial Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: SafeArea(
+        child: Container(
+          color: Theme.of(context).primaryColor,
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: double.infinity,
+                margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Gerencie\nSeus Cartões\nCom o Darm\nBank!',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.fontSize,
+                            fontWeight: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.fontWeight,
+                            color:
+                                Theme.of(context).textTheme.titleLarge?.color),
+                      ),
+                      Text(
+                        'Prático e facil\nde usar',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.fontSize,
+                            color:
+                                Theme.of(context).textTheme.titleMedium?.color),
+                      ),
+                    ]),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.elliptical(320, 200)),
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: double.infinity,
+                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: ElevatedButton(
+                              onPressed: () => null,
+                              child: const Text(
+                                'Criar uma conta',
+                                style: TextStyle(fontSize: 18),
+                              )),
+                        )
+                      ]),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
