@@ -1,10 +1,9 @@
 class UserModel {
-
   final String? name;
   final String? email;
   final String? cpf;
-  final String? Image;
-  final String? 
+  final String? image;
+  final String? telephone;
 
-  UserModel({this.name});
+  UserModel({this.name, this.email, this.cpf, this.image, this.telephone});
 }
