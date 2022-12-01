@@ -20,6 +20,7 @@ class InitialView extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Image.asset('assets/images/darm_logo.png'),
                       Text(
                         'Gerencie\nSeus Cartões\nCom o Darm\nBank!',
                         textAlign: TextAlign.left,
