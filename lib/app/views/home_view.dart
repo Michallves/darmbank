@@ -59,7 +59,7 @@ class HomeView extends StatelessWidget {
                     children: [
                       CCButton(
                         text: "solicitar cartão",
-                        click: () => Navigator.of(context).pop(),
+                        click: () {},
                       ),
                       CCButton(
                         text: "cadastrar cartão",

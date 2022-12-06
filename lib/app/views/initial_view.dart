@@ -72,8 +72,7 @@ class InitialView extends StatelessWidget {
                     child: const Text('Já possui conta?'),
                   ),
                   TextButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(Routes.HOME),
+                    onPressed: () {},
                     child: const Text('Entrar como adm'),
                   ),
                   const SizedBox(
