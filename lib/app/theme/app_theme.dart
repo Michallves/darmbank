@@ -6,27 +6,71 @@ const tertiaryColor = Color(0xFF2C2A2F);
 
 ThemeData appThemeData = ThemeData.from(
   colorScheme: const ColorScheme(
-      brightness: Brightness.light,
-      primary: primaryColor,
-      onPrimary: secondaryColor,
-      secondary: tertiaryColor,
-      onSecondary: primaryColor,
-      error: Colors.red,
-      onError: Colors.red,
-      background: secondaryColor,
-      onBackground: secondaryColor,
-      surface: primaryColor,
-      onSurface: tertiaryColor),
+    brightness: Brightness.light,
+    primary: primaryColor,
+    onPrimary: secondaryColor,
+    secondary: tertiaryColor,
+    onSecondary: primaryColor,
+    error: Colors.red,
+    onError: Colors.red,
+    background: secondaryColor,
+    onBackground: secondaryColor,
+    surface: primaryColor,
+    onSurface: tertiaryColor,
+  ),
   textTheme: const TextTheme(
-    titleLarge: TextStyle(
+    displayLarge: TextStyle(
       color: secondaryColor,
       fontSize: 36,
       fontWeight: FontWeight.w700,
       height: 40,
     ),
+    titleLarge: TextStyle(
+      color: tertiaryColor,
+      fontFamily: "Poppins",
+      fontSize: 28,
+      fontWeight: FontWeight.w600,
+    ),
     titleMedium: TextStyle(
       color: secondaryColor,
-      fontSize: 25,
+      fontFamily: "Poppins",
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+    ),
+    titleSmall: TextStyle(
+      color: secondaryColor,
+      fontSize: 20,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w600,
+    ),
+    bodyLarge: TextStyle(
+      color: tertiaryColor,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w400,
+    ),
+    bodyMedium: TextStyle(
+      color: secondaryColor,
+      fontFamily: "Poppins",
+    ),
+    bodySmall: TextStyle(
+      color: secondaryColor,
+    ),
+    labelMedium: TextStyle(
+      color: tertiaryColor,
+      fontFamily: "Poppins",
+      fontSize: 16,
+      fontWeight: FontWeight.w800,
+    ),
+    labelSmall: TextStyle(
+      color: tertiaryColor,
+      fontFamily: "Montserrat",
+      fontSize: 14,
+    ),
+    headlineMedium: TextStyle(
+      color: secondaryColor,
+    ),
+    headlineSmall: TextStyle(
+      color: secondaryColor,
     ),
   ),
 );
