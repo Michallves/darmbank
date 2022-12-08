@@ -12,7 +12,6 @@ class InitialView extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 2.2,
             width: double.infinity,
             margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
             child: Column(

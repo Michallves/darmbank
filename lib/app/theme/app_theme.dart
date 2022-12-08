@@ -58,8 +58,7 @@ ThemeData appThemeData = ThemeData.from(
     labelMedium: TextStyle(
       color: tertiaryColor,
       fontFamily: "Poppins",
-      fontSize: 16,
-      fontWeight: FontWeight.w800,
+      fontSize: 14,
     ),
     labelSmall: TextStyle(
       color: tertiaryColor,

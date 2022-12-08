@@ -1,5 +1,6 @@
 import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widget/button.dart';
+import 'package:darmbank/app/widget/textField_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -20,77 +21,55 @@ class LoginView extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Expanded(
-              child: SizedBox(
-                width: double.infinity,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(15),
-              child: Form(
-                //key: ,
-                child: Column(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "CPF",
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+          ),
+          child: Column(
+            children: [
+              Flexible(
+                flex: 5,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.elliptical(270, 140),
+                    ),
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const TextFieldWidget(
+                        label: 'CPF',
+                        hintText: '000.000.000-00',
+                      ),
+                      const TextFieldWidget(
+                        label: 'Senha',
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Esqueceu sua senha?",
+                            style: Theme.of(context).textTheme.labelSmall,
                           ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Senha",
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Esqueceu sua senha?",
-                          style: Theme.of(context).textTheme.labelSmall,
-                        ),
-                      ],
-                    ),
-                    Button(
-                      title: "Entrar",
-                      onPressed: () => Navigator.of(context)
-                          .pushReplacementNamed(Routes.HOME),
-                    ),
-                  ],
+                        ],
+                      ),
+                      Button(
+                        title: "Entrar",
+                        onPressed: () => Navigator.of(context)
+                            .pushReplacementNamed(Routes.HOME),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.3,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ],
+              Flexible(
+                flex: 1,
+                child: Container(),
+              )
+            ],
+          ),
         ),
       ),
     );
