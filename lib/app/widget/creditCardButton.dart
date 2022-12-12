@@ -21,7 +21,7 @@ class CCButton extends StatelessWidget {
         onPressed: click,
         style: OutlinedButton.styleFrom(
           backgroundColor: Colors.white,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           shape: const StadiumBorder(),
           side: BorderSide(
             color: colorScheme.tertiary,

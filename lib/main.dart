@@ -5,6 +5,7 @@ import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
 
 import 'app/views/login_view.dart';
+import 'app/views/main_view.dart';
 import 'app/views/register_view.dart';
 
 void main() {
@@ -25,7 +26,8 @@ class App extends StatelessWidget {
         Routes.INITIAL: (context) => const InitialView(),
         Routes.LOGIN: (context) => const LoginView(),
         Routes.REGISTER: (context) => const RegisterView(),
-        Routes.HOME: (context) => const HomeView(),
+        Routes.MAIN: (context) => const MainView(),
+        //Routes.HOME: (context) => const HomeView(),
       },
     );
   }

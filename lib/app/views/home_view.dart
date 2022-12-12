@@ -54,7 +54,7 @@ class HomeView extends StatelessWidget {
                   height: height * 0.075,
                   width: width,
                   child: ListView(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
                     scrollDirection: Axis.horizontal,
                     children: [
                       CCButton(
@@ -75,73 +75,52 @@ class HomeView extends StatelessWidget {
               ],
             ),
             //CARD INFERIOR
-            Container(
-              width: width,
-              height: height * 0.22,
-              margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.only(right: 20),
-              decoration: BoxDecoration(
-                color: colorScheme.primary,
-                borderRadius: BorderRadius.circular(25),
-              ),
+            SizedBox(
+              height: height * 0.20,
               child: Stack(
-                fit: StackFit.expand,
+                alignment: AlignmentDirectional.centerStart,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        "Indique e ganhe!",
-                        style: theme.textTheme.titleSmall,
-                        textAlign: TextAlign.left,
-                      ),
-                      Text(
-                        "Darm Bank está oferecendo\n"
-                        "10\$ para cada pessoa que\n"
-                        "baixe o app com seu link",
-                        style: theme.textTheme.bodyMedium,
-                      ),
-                    ],
+                  Container(
+                    width: width,
+                    //height: height * 0.22,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.only(right: 20),
+                    decoration: BoxDecoration(
+                      color: colorScheme.primary,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Indique e ganhe!",
+                          style: theme.textTheme.titleSmall,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Darm Bank está oferecendo\n"
+                          "10\$ para cada pessoa que\n"
+                          "baixe o app com seu link",
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
                   ),
-                  Image.asset(
-                    "assets/images/peoplewithcard.png",
-                    alignment: Alignment.centerLeft,
-                    scale: 0.8,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Image.asset(
+                      "assets/images/peoplewithcard.png",
+                      alignment: Alignment.centerLeft,
+                      //fit: BoxFit.fitHeight,
+                      scale: 0.7,
+                    ),
                   ),
                 ],
               ),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: colorScheme.tertiary,
-            ),
-            label: "Início",
-            tooltip: "Início",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notificações",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Scanner",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            label: "Cartões",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Perfil",
-          ),
-        ],
       ),
     );
   }

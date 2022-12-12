@@ -4,5 +4,7 @@ abstract class Routes {
   static const INITIAL = '/initial';
   static const LOGIN = '/login';
   static const REGISTER = '/register';
-  static const HOME = '/';
+  static const MAIN = '/';
+  static const HOME = '/home';
+  static const PROFILE = '/user-profile';
 }
