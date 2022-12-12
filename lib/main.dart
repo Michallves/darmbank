@@ -1,6 +1,5 @@
 import 'package:darmbank/app/theme/app_theme.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
-import 'package:darmbank/app/views/home_view.dart';
 import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
 

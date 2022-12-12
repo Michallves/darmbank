@@ -16,10 +16,16 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.2.16
+  http: ^0.13.5
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
+  integration_test:           # new
+    sdk: flutter              # new
+  test: ^1.14.4               # new
+
 
   mobx:
   flutter_mobx:
