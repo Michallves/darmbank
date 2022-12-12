@@ -55,15 +55,22 @@ ThemeData appThemeData = ThemeData.from(
     bodySmall: TextStyle(
       color: secondaryColor,
     ),
+    labelLarge: TextStyle(
+      color: secondaryColor,
+      fontFamily: "Montserrat",
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    ),
     labelMedium: TextStyle(
       color: tertiaryColor,
       fontFamily: "Poppins",
       fontSize: 14,
     ),
     labelSmall: TextStyle(
-      color: tertiaryColor,
+      color: secondaryColor,
       fontFamily: "Montserrat",
-      fontSize: 14,
+      fontSize: 10,
+      fontWeight: FontWeight.w700,
     ),
     headlineMedium: TextStyle(
       color: secondaryColor,

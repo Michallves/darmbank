@@ -20,54 +20,40 @@ class LoginView extends StatelessWidget {
         elevation: 0,
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: SafeArea(
         child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.8,
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
+            borderRadius: const BorderRadius.only(
+              bottomRight: Radius.elliptical(270, 140),
+            ),
+            color: Theme.of(context).backgroundColor,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(
-                flex: 5,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.elliptical(270, 140),
-                    ),
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const TextFieldWidget(
-                        label: 'CPF',
-                        hintText: '000.000.000-00',
-                      ),
-                      const TextFieldWidget(
-                        label: 'Senha',
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Esqueceu sua senha?",
-                            style: Theme.of(context).textTheme.labelSmall,
-                          ),
-                        ],
-                      ),
-                      Button(
-                        title: "Entrar",
-                        onPressed: () => Navigator.of(context)
-                            .pushReplacementNamed(Routes.HOME),
-                      ),
-                    ],
-                  ),
-                ),
+              const TextFieldWidget(
+                label: 'CPF',
+                hintText: '000.000.000-00',
               ),
-              Flexible(
-                flex: 1,
-                child: Container(),
-              )
+              const TextFieldWidget(
+                label: 'Senha',
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Esqueceu sua senha?",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ],
+              ),
+              Button(
+                title: "Entrar",
+                onPressed: () =>
+                    Navigator.of(context).pushReplacementNamed(Routes.HOME),
+              ),
             ],
           ),
         ),
