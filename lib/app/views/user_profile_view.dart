@@ -1,3 +1,4 @@
+import 'package:darmbank/app/widget/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileView extends StatelessWidget {
@@ -8,9 +9,45 @@ class UserProfileView extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Center(
-      child: Text(
-        "Olá fernando",
-        style: theme.textTheme.displayMedium,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            backgroundImage: const AssetImage("assets/images/user_image.png"),
+            radius: MediaQuery.of(context).size.width * 0.25,
+            //radius: 100,
+          ),
+          Text(
+            "Olá fernando",
+            style: theme.textTheme.labelMedium,
+          ),
+          SizedBox(
+            child: Column(
+              children: [
+                CustomListTile(
+                  title: "Alterar seus dados",
+                  imagePath: "assets/images/change_data.png",
+                  onTap: () {},
+                ),
+                CustomListTile(
+                  title: "Alterar sua senha",
+                  imagePath: "assets/images/change_password.png",
+                  onTap: () {},
+                ),
+                CustomListTile(
+                  title: "Termos de privacidade",
+                  imagePath: "assets/images/terms_of_privacy.png",
+                  onTap: () {},
+                ),
+                CustomListTile(
+                  title: "Sair da conta",
+                  imagePath: "assets/images/logout.png",
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
