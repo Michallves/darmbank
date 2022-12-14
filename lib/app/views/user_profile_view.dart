@@ -1,4 +1,4 @@
-import 'package:darmbank/app/widget/custom_list_tile.dart';
+import 'package:darmbank/app/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileView extends StatelessWidget {

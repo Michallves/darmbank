@@ -1,5 +1,5 @@
 import 'package:darmbank/app/utils/app_routes.dart';
-import 'package:darmbank/app/widget/button.dart';
+import 'package:darmbank/app/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class InitialView extends StatelessWidget {

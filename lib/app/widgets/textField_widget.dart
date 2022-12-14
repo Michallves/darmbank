@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({super.key, required this.label, this.hintText});
+  const TextFieldWidget({super.key, required this.label, this.hintText, this.controller});
   final String label;
   final String? hintText;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -26,6 +27,7 @@ class TextFieldWidget extends StatelessWidget {
             width: width,
             child: TextFormField(
               cursorHeight: 25,
+              controller: controller,
               textAlignVertical: TextAlignVertical.center,
               decoration: InputDecoration(
                 hintText: hintText,

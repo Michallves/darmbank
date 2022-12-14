@@ -1,5 +1,5 @@
-import 'package:darmbank/app/widget/creditCard.dart';
-import 'package:darmbank/app/widget/creditCardButton.dart';
+import 'package:darmbank/app/widgets/creditCard.dart';
+import 'package:darmbank/app/widgets/creditCardButton.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
