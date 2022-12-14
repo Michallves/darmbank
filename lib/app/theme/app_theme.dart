@@ -45,9 +45,8 @@ ThemeData appThemeData = ThemeData.from(
     ),
     bodyLarge: TextStyle(
       color: tertiaryColor,
-      fontFamily: "Montserrat",
-      fontWeight: FontWeight.w500,
-      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w400,
     ),
     bodyMedium: TextStyle(
       color: secondaryColor,

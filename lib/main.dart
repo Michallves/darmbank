@@ -1,5 +1,6 @@
 import 'package:darmbank/app/controllers/auth_controller.dart';
-import 'package:darmbank/app/themes/app_theme.dart';
+import 'package:darmbank/app/services/auth_services.dart';
+import 'package:darmbank/app/theme/app_theme.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,8 @@ import 'app/views/register_view.dart';
 
 void main() {
   GetIt getIt = GetIt.I;
-  getIt.registerSingleton<AuthController>(AuthCont roller());
+   getIt.registerSingleton(AuthController());
+    getIt.registerSingleton(AuthServices());
 
   runApp(const App());
 }

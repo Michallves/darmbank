@@ -1,18 +1,16 @@
-import 'dart:convert';
+import 'package:darmbank/app/services/auth_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
 import 'package:mobx/mobx.dart';
 part 'auth_controller.g.dart';
 
-class Controller = AuthController with _$Controller;
+class AuthController = _AuthController with _$AuthController;
 
-abstract class AuthController with Store {
-  final auth = GetIt.I.get<AuthController>();
+abstract class _AuthController with Store {
+
+  final AuthServices auth = GetIt.I.get<AuthServices>();
 
   
-  static const _url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCyq5FIgzOey1K5GbMKpQbJku7eAXlbmR4";
 
   @observable
   TextEditingController email = TextEditingController();
@@ -20,12 +18,8 @@ abstract class AuthController with Store {
   @observable
   TextEditingController password = TextEditingController();
 
+  
 
-  @action
-  Future<void> signUp() async {
-    final response = await http.post(Uri.parse(_url),
-        body: jsonEncode(
-            {'email': email, 'password': password, 'returnSecureToken': true}));
-  }
+
   
 }
