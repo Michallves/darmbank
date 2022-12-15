@@ -2,6 +2,7 @@ import 'package:darmbank/app/controllers/auth_controller.dart';
 import 'package:darmbank/app/services/auth_services.dart';
 import 'package:darmbank/app/theme/app_theme.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
+import 'package:darmbank/app/views/forgot_password_view.dart';
 import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -34,6 +35,7 @@ class App extends StatelessWidget {
         Routes.LOGIN: (context) => const LoginView(),
         Routes.REGISTER: (context) => const RegisterView(),
         Routes.MAIN: (context) => const MainView(),
+        Routes.PASSWORD: (context) => const ForgotPasswordView(),
       },
     );
   }
