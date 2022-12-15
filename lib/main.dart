@@ -4,15 +4,17 @@ import 'package:darmbank/app/theme/app_theme.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get_it/get_it.dart';
 import 'app/views/login_view.dart';
 import 'app/views/main_view.dart';
 import 'app/views/register_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   GetIt getIt = GetIt.I;
-   getIt.registerSingleton(AuthController());
-    getIt.registerSingleton(AuthServices());
+  getIt.registerSingleton(AuthController());
+  getIt.registerSingleton(AuthServices());
 
   runApp(const App());
 }
@@ -26,7 +28,7 @@ class App extends StatelessWidget {
       title: 'Darm Bank',
       debugShowCheckedModeBanner: false,
       theme: appThemeData,
-      initialRoute: '/initial',
+      initialRoute: Routes.INITIAL,
       routes: {
         Routes.INITIAL: (context) => const InitialView(),
         Routes.LOGIN: (context) => const LoginView(),

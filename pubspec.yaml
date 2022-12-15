@@ -59,11 +59,11 @@ flutter:
       - asset: assets/fonts/Poppins-Regular.ttf
 
 flutter_icons:
+    image_path: "assets/images/darm_logo.png"
     android: "launcher_icon"
     ios: true
     remove_alpha_ios: true
-    image_path: "assets/images/darm_logo.png"
-    min_sdk_android: 21 # android min sdk min:16, default 21
+    background_color: "#9747FF"
     web:
       generate: true
       image_path: "assets/images/darm_logo.png"
@@ -76,3 +76,9 @@ flutter_icons:
     macos:
       generate: true
       image_path: "assets/images/darm_logo.png"
+
+flutter_native_splash:
+  color: "#9747FF"
+  image: "assets/images/darm_logo.png"
+  android: true
+  ios: true

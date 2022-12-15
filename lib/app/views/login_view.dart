@@ -57,7 +57,7 @@ class LoginView extends StatelessWidget {
               Button(
                   title: "Entrar",
                   onPressed: () =>
-                      Navigator.of(context).pushReplacementNamed(Routes.MAIN)),
+                      controller.signIn()),
             ],
           ),
         ),

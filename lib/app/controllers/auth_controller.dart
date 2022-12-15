@@ -7,10 +7,7 @@ part 'auth_controller.g.dart';
 class AuthController = _AuthController with _$AuthController;
 
 abstract class _AuthController with Store {
-
-  final AuthServices auth = GetIt.I.get<AuthServices>();
-
-  
+  final auth = GetIt.I.get<AuthServices>();
 
   @observable
   TextEditingController email = TextEditingController();
@@ -18,8 +15,9 @@ abstract class _AuthController with Store {
   @observable
   TextEditingController password = TextEditingController();
 
-  
-
+  signIn() async {
+    await auth.signUp(email: email.value.text, password: password.value.text);
+  }
 
   
 }
