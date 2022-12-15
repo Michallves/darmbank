@@ -64,18 +64,7 @@ flutter_icons:
     ios: true
     remove_alpha_ios: true
     background_color: "#9747FF"
-    web:
-      generate: true
-      image_path: "assets/images/darm_logo.png"
-      background_color: "#9747FF"
-      theme_color: "#9747FF"
-    windows:
-      generate: true
-      image_path: "assets/images/darm_logo.png"
-      icon_size: 48 # min:48, max:256, default: 48
-    macos:
-      generate: true
-      image_path: "assets/images/darm_logo.png"
+
 
 flutter_native_splash:
   color: "#9747FF"
