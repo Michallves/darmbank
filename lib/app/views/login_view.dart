@@ -1,14 +1,16 @@
-import 'package:darmbank/app/controllers/auth_controller.dart';
-import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+import '../controllers/auth_controller.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = GetIt.I.get<AuthController>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -35,12 +37,15 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const TextFieldWidget(
-                label: 'CPF',
-                hintText: '000.000.000-00',
+              TextFieldWidget(
+                label: 'Email',
+                hintText: 'maicon@gmail.com',
+                controller: controller.email,
               ),
-              const TextFieldWidget(
+              TextFieldWidget(
                 label: 'Senha',
+                hintText: '********',
+                controller: controller.password,
               ),
               Row(
                 children: [
@@ -50,10 +55,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(
-                  title: "Entrar",
-                  onPressed: () =>
-                      Navigator.of(context).pushNamed(Routes.MAIN)),
+              Button(title: "Entrar", onPressed: () => controller.signIn()),
             ],
           ),
         ),

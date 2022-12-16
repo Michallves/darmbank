@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  final TextEditingController? controller;
   final String label;
   final String? hintText;
   final double? width;
@@ -14,6 +15,7 @@ class TextFieldWidget extends StatelessWidget {
   final int? maxLenght;
 
   const TextFieldWidget({
+    this.controller,
     required this.label,
     this.width,
     this.hintText,
@@ -61,6 +63,7 @@ class TextFieldWidget extends StatelessWidget {
                     fontFamily: "Montserrat",
                   ),
                 ),
+                controller: controller,
                 validator: validator,
                 keyboardType: keyboardType,
                 maxLength: maxLenght,
