@@ -1,4 +1,5 @@
 import 'package:darmbank/app/controllers/auth_controller.dart';
+import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,10 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(title: "Entrar", onPressed: () => controller.signIn()),
+              Button(
+                  title: "Entrar",
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(Routes.MAIN)),
             ],
           ),
         ),
