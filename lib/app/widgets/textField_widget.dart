@@ -1,51 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget(
-      {super.key, required this.label, this.hintText, this.onChanged});
   final String label;
   final String? hintText;
-  final Function(String)? onChanged;
+  final double? width;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final void Function(String?)? onSaved;
+  final EdgeInsets? margin;
+  final TextAlign? textAlign;
+  final List<TextInputFormatter>? inputFormatters;
+  final int? maxLenght;
+
+  const TextFieldWidget({
+    required this.label,
+    this.width,
+    this.hintText,
+    this.validator,
+    this.keyboardType,
+    this.onSaved,
+    this.margin,
+    this.textAlign,
+    this.inputFormatters,
+    this.maxLenght,
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      alignment: Alignment.centerLeft,
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Text(
+    return Padding(
+      padding:
+          margin ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      child: SizedBox(
+        width: width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
               label,
               style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF2C2A2F),
-                  fontWeight: FontWeight.w100),
-              textAlign: TextAlign.left,
+                color: Theme.of(context).colorScheme.tertiary,
+                fontFamily: "Montserrat",
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
             ),
-          ),
-          const Padding(padding: EdgeInsets.all(3)),
-          SizedBox(
-            height: 50,
-            width: double.infinity,
-            child: Observer(builder: (_) {
-              return TextField(
-                onChanged: onChanged,
-                textAlignVertical: TextAlignVertical.center,
-                style: Theme.of(context).textTheme.labelMedium,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextFormField(
                 decoration: InputDecoration(
-                  alignLabelWithHint: true,
-                  hintText: hintText,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  hintText: hintText,
+                  hintStyle: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey.shade300,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Montserrat",
+                  ),
                 ),
-              );
-            }),
-          ),
-        ],
+                validator: validator,
+                keyboardType: keyboardType,
+                maxLength: maxLenght,
+                onSaved: onSaved,
+                textAlign: textAlign ?? TextAlign.left,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontFamily: "Montserrat",
+                  fontWeight: FontWeight.w400,
+                ),
+                inputFormatters: inputFormatters,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

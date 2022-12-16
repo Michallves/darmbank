@@ -4,15 +4,14 @@ class Button extends StatelessWidget {
   const Button({super.key, required this.title, required this.onPressed});
 
   final String title;
-  final Function onPressed;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.9,
       height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 20),
       child: ElevatedButton(
-        onPressed: () => onPressed,
+        onPressed: onPressed,
         style: ButtonStyle(
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
@@ -24,6 +23,7 @@ class Button extends StatelessWidget {
             TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
+              fontFamily: "Montserrat",
             ),
           ),
         ),

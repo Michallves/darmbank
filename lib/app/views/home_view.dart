@@ -1,3 +1,4 @@
+import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/creditCard.dart';
 import 'package:darmbank/app/widgets/creditCardButton.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,8 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset(
-          "assets/images/user_image.png",
-          scale: 0.7,
+        leading: const CircleAvatar(
+          backgroundImage: AssetImage("assets/images/user_image.png"),
         ),
         title: Text(
           "Bem vindo, Fernando",
@@ -63,7 +63,8 @@ class HomeView extends StatelessWidget {
                       ),
                       CCButton(
                         text: "cadastrar cartão",
-                        click: () {},
+                        click: () => Navigator.of(context)
+                            .pushNamed(Routes.REGISTER_CARD),
                       ),
                       CCButton(
                         text: "cartões solicitados",

@@ -3,15 +3,12 @@ import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:get_it/get_it.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = GetIt.I.get<AuthController>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -38,21 +35,13 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Observer(builder: (_) {
-                return TextFieldWidget(
-                  label: 'Email',
-                  hintText: 'maicon@gmail.com',
-                  onChanged: (value) => controller.userForm.changeEmail(value),
-                );
-              }),
-              Observer(builder: (_) {
-                return TextFieldWidget(
-                  label: 'Senha',
-                  hintText: '********',
-                  onChanged: (value) =>
-                      controller.userForm.changePassword(value),
-                );
-              }),
+              const TextFieldWidget(
+                label: 'CPF',
+                hintText: '000.000.000-00',
+              ),
+              const TextFieldWidget(
+                label: 'Senha',
+              ),
               Row(
                 children: [
                   Text(

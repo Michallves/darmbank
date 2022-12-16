@@ -1,4 +1,5 @@
 import 'package:darmbank/app/views/user_profile_view.dart';
+import 'package:darmbank/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'home_view.dart';
@@ -12,6 +13,7 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   int _tabIndex = 0;
+
   final List<Widget> _tabs = const [
     HomeView(),
     HomeView(),
@@ -20,50 +22,60 @@ class _MainViewState extends State<MainView> {
     UserProfileView(),
   ];
 
-  void changeNavigatorItem() {}
+  void _changeTab(int index) {
+    //Condição para não atualizar tela quando o valor permanecer o mesmo
+    if (_tabIndex == index) return;
+
+    setState(() {
+      _tabIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-    final colorScheme = Theme.of(context).colorScheme;
     final theme = Theme.of(context);
 
     return Scaffold(
       body: _tabs[_tabIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _tabIndex,
+        onTap: _changeTab,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: colorScheme.tertiary,
-            ),
-            label: "Início",
-            tooltip: "Início",
+          CustomNavBarItem(
+            icon: const Icon(Icons.home_outlined),
+            label: "Home",
+            activeIcon:
+                Icon(Icons.home_rounded, color: theme.colorScheme.onPrimary),
+            bubbleColor: theme.colorScheme.primary,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+          CustomNavBarItem(
+            icon: const Icon(Icons.notifications_outlined),
             label: "Notificações",
+            activeIcon:
+                Icon(Icons.notifications, color: theme.colorScheme.onPrimary),
+            bubbleColor: theme.colorScheme.primary,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+          CustomNavBarItem(
+            icon: const Icon(Icons.qr_code_scanner_outlined),
             label: "Scanner",
+            activeIcon:
+                Icon(Icons.qr_code_scanner, color: theme.colorScheme.onPrimary),
+            bubbleColor: theme.colorScheme.primary,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
+          CustomNavBarItem(
+            icon: const Icon(Icons.credit_card_outlined),
             label: "Cartões",
+            activeIcon:
+                Icon(Icons.credit_card, color: theme.colorScheme.onPrimary),
+            bubbleColor: theme.colorScheme.primary,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+          CustomNavBarItem(
+            icon: const Icon(Icons.person_outline),
             label: "Perfil",
+            activeIcon: Icon(Icons.person, color: theme.colorScheme.onPrimary),
+            bubbleColor: theme.colorScheme.primary,
           ),
         ],
-        onTap: (value) {
-          setState(() {
-            _tabIndex = value;
-          });
-        },
       ),
     );
   }

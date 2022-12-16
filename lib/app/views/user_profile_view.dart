@@ -1,3 +1,4 @@
+import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,8 @@ class UserProfileView extends StatelessWidget {
                 CustomListTile(
                   title: "Sair da conta",
                   imagePath: "assets/images/logout.png",
-                  onTap: () {},
+                  onTap: () => Navigator.of(context)
+                      .pushReplacementNamed(Routes.INITIAL),
                 ),
               ],
             ),

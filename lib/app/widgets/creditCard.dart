@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CreditCard extends StatelessWidget {
-  const CreditCard({super.key});
+  final double? height;
+  final double? width;
+  final EdgeInsets? margin;
+  const CreditCard({
+    this.height,
+    this.width,
+    this.margin,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final colorScheme = Theme.of(context).colorScheme;
     final theme = Theme.of(context);
 
     return Container(
-      width: width * 0.85,
-      height: height,
-      margin: const EdgeInsets.all(10),
+      width: width ?? (MediaQuery.of(context).size.width * 0.85),
+      height: height ?? 225,
+      margin: margin ?? const EdgeInsets.all(10),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: colorScheme.primary,
