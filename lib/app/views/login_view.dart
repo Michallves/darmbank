@@ -37,7 +37,7 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               TextFieldWidget(
+              TextFieldWidget(
                 label: 'Email',
                 hintText: 'maicon@gmail.com',
                 controller: controller.email,
@@ -54,10 +54,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(
-                  title: "Entrar",
-                  onPressed: () =>
-                      controller.signIn()),
+              Button(title: "Entrar", onPressed: () => null),
             ],
           ),
         ),

@@ -5,17 +5,15 @@ import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/views/forgot_password_view.dart';
 import 'package:darmbank/app/views/initial_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get_it/get_it.dart';
 import 'app/views/login_view.dart';
 import 'app/views/main_view.dart';
 import 'app/views/register_view.dart';
 
-void main() async {
+void main() {
+  final GetIt getIt = GetIt.I;
+  getIt.registerSingleton([AuthController(), AuthServices()]);
   WidgetsFlutterBinding.ensureInitialized();
-  GetIt getIt = GetIt.I;
-  getIt.registerSingleton(AuthController());
-  getIt.registerSingleton(AuthServices());
 
   runApp(const App());
 }

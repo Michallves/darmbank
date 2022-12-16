@@ -36,8 +36,38 @@ dev_dependencies:
   build_runner:
   flutter_lints: ^2.0.0
 
-  
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon_app.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "#9747FF"
+  web:
+    generate: true
+    image_path: "assets/images/icon_app.png"
+    background_color: "#9747FF"
+    theme_color: "#9747FF"
+  windows:
+    generate: true
+    image_path: "assets/images/icon_app.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/icon_app.png"
 
+
+flutter_native_splash:
+  color: "#9747FF"
+  image: assets/images/icon_app.png
+  android: true
+  ios: true
+  web: true
+  android_12:
+    image: assets/images/icon_app.png
+    icon_background_color: "#9747FF"
+
+
+  
 
 flutter:
 
@@ -58,16 +88,3 @@ flutter:
       fonts:
       - asset: assets/fonts/Poppins-Regular.ttf
 
-flutter_icons:
-    image_path: "assets/images/darm_logo.png"
-    android: "launcher_icon"
-    ios: true
-    remove_alpha_ios: true
-    background_color: "#9747FF"
-
-
-flutter_native_splash:
-  color: "#9747FF"
-  image: "assets/images/darm_logo.png"
-  android: true
-  ios: true

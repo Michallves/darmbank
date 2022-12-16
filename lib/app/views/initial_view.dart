@@ -22,7 +22,7 @@ class InitialView extends StatelessWidget {
                   height: 50,
                 ),
                 const Image(
-                  image: AssetImage('assets/images/darm_logo.png'),
+                  image: AssetImage('assets/images/icon_logo.png'),
                   width: 50,
                 ),
                 Text(
