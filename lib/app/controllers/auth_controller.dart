@@ -12,6 +12,6 @@ abstract class _AuthController with Store {
   var userForm = UserForm();
   @action
   signIn() {
-    print('$email, $password');
+    print('${userForm.email} ${userForm.password}');
   }
 }

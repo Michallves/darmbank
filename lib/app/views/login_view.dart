@@ -2,6 +2,7 @@ import 'package:darmbank/app/controllers/auth_controller.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
 class LoginView extends StatelessWidget {
@@ -36,16 +37,21 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFieldWidget(
-                label: 'Email',
-                hintText: 'maicon@gmail.com',
-                onChanged: controller.email,
-              ),
-              TextFieldWidget(
-                label: 'Senha',
-                hintText: '********',
-                onChanged: controller.password,
-              ),
+              Observer(builder: (_) {
+                return TextFieldWidget(
+                  label: 'Email',
+                  hintText: 'maicon@gmail.com',
+                  onChanged: (value) => controller.userForm.changeEmail(value),
+                );
+              }),
+              Observer(builder: (_) {
+                return TextFieldWidget(
+                  label: 'Senha',
+                  hintText: '********',
+                  onChanged: (value) =>
+                      controller.userForm.changePassword(value),
+                );
+              }),
               Row(
                 children: [
                   Text(
@@ -54,7 +60,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(title: "Entrar", onPressed: () => print(controller.email)),
+              Button(title: "Entrar", onPressed: () => controller.signIn()),
             ],
           ),
         ),
