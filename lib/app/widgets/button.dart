@@ -4,7 +4,7 @@ class Button extends StatelessWidget {
   const Button({super.key, required this.title, required this.onPressed});
 
   final String title;
-  final void Function()? onPressed;
+  final Function onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +12,7 @@ class Button extends StatelessWidget {
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: () => onPressed,
         style: ButtonStyle(
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(
