@@ -38,21 +38,16 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Observer(builder: (_) {
-                return TextFieldWidget(
-                  label: 'Email',
-                  hintText: 'maicon@gmail.com',
-                  onChanged: (value) => controller.userForm.changeEmail(value),
-                );
-              }),
-              Observer(builder: (_) {
-                return TextFieldWidget(
-                  label: 'Senha',
-                  hintText: '********',
-                  onChanged: (value) =>
-                      controller.userForm.changePassword(value),
-                );
-              }),
+              TextFieldWidget(
+                label: 'Email',
+                hintText: 'maicon@gmail.com',
+                controller: controller.email,
+              ),
+              TextFieldWidget(
+                label: 'Senha',
+                hintText: '********',
+                controller: controller.password,
+              ),
               Row(
                 children: [
                   Text(
@@ -61,10 +56,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(
-                  title: "Entrar",
-                  onPressed: () =>
-                      Navigator.of(context).pushNamed(Routes.MAIN)),
+              Button(title: "Entrar", onPressed: () => controller.signIn()),
             ],
           ),
         ),

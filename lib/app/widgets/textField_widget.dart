@@ -3,10 +3,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget(
-      {super.key, required this.label, this.hintText, this.onChanged});
+      {super.key, required this.label, this.hintText, this.controller});
   final String label;
   final String? hintText;
-  final Function(String)? onChanged;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,11 +28,10 @@ class TextFieldWidget extends StatelessWidget {
           ),
           const Padding(padding: EdgeInsets.all(3)),
           SizedBox(
-            height: 50,
-            width: double.infinity,
-            child: Observer(builder: (_) {
-              return TextField(
-                onChanged: onChanged,
+              height: 50,
+              width: double.infinity,
+              child: TextField(
+                controller: controller,
                 textAlignVertical: TextAlignVertical.center,
                 style: Theme.of(context).textTheme.labelMedium,
                 decoration: InputDecoration(
@@ -42,9 +41,7 @@ class TextFieldWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-              );
-            }),
-          ),
+              )),
         ],
       ),
     );
