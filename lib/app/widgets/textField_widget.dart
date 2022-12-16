@@ -1,41 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({super.key, required this.label, this.hintText, this.controller});
+  const TextFieldWidget(
+      {super.key, required this.label, this.hintText, this.onChanged});
   final String label;
   final String? hintText;
-  final TextEditingController? controller;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Container(
-      width: width - 20,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
       alignment: Alignment.centerLeft,
       child: Column(
         children: [
           SizedBox(
-            width: width,
+            width: double.infinity,
             child: Text(
               label,
-              style: Theme.of(context).textTheme.labelMedium,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF2C2A2F),
+                  fontWeight: FontWeight.w100),
               textAlign: TextAlign.left,
             ),
           ),
           const Padding(padding: EdgeInsets.all(3)),
           SizedBox(
             height: 50,
-            width: width,
-            child: TextFormField(
-              cursorHeight: 25,
-              controller: controller,
-              textAlignVertical: TextAlignVertical.center,
-              decoration: InputDecoration(
-                hintText: hintText,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            width: double.infinity,
+            child: Observer(builder: (_) {
+              return TextField(
+                onChanged: onChanged,
+                textAlignVertical: TextAlignVertical.center,
+                style: Theme.of(context).textTheme.labelMedium,
+                decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  hintText: hintText,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-              ),
-            ),
+              );
+            }),
           ),
         ],
       ),

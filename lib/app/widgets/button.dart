@@ -7,9 +7,10 @@ class Button extends StatelessWidget {
   final Function onPressed;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width - 30,
+    return Container(
+      width: double.infinity,
       height: 50,
+      margin: EdgeInsets.symmetric(horizontal: 20),
       child: ElevatedButton(
         onPressed: () => onPressed,
         style: ButtonStyle(

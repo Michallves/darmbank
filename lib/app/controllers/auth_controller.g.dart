@@ -13,13 +13,13 @@ mixin _$AuthController on _AuthController, Store {
       Atom(name: '_AuthController.email', context: context);
 
   @override
-  TextEditingController get email {
+  String get email {
     _$emailAtom.reportRead();
     return super.email;
   }
 
   @override
-  set email(TextEditingController value) {
+  set email(String value) {
     _$emailAtom.reportWrite(value, super.email, () {
       super.email = value;
     });
@@ -29,16 +29,30 @@ mixin _$AuthController on _AuthController, Store {
       Atom(name: '_AuthController.password', context: context);
 
   @override
-  TextEditingController get password {
+  String get password {
     _$passwordAtom.reportRead();
     return super.password;
   }
 
   @override
-  set password(TextEditingController value) {
+  set password(String value) {
     _$passwordAtom.reportWrite(value, super.password, () {
       super.password = value;
     });
+  }
+
+  late final _$_AuthControllerActionController =
+      ActionController(name: '_AuthController', context: context);
+
+  @override
+  dynamic signIn() {
+    final _$actionInfo = _$_AuthControllerActionController.startAction(
+        name: '_AuthController.signIn');
+    try {
+      return super.signIn();
+    } finally {
+      _$_AuthControllerActionController.endAction(_$actionInfo);
+    }
   }
 
   @override

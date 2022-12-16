@@ -10,9 +10,10 @@ import 'app/views/login_view.dart';
 import 'app/views/main_view.dart';
 import 'app/views/register_view.dart';
 
-void main() {
+void main() async {
   final GetIt getIt = GetIt.I;
-  getIt.registerSingleton([AuthController(), AuthServices()]);
+  getIt.registerSingleton<AuthController>(AuthController());
+  getIt.registerSingleton<AuthServices>(AuthServices());
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const App());

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class AuthServices {
+ class AuthServices {
   
   static const _url =
       "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCyq5FIgzOey1K5GbMKpQbJku7eAXlbmR4";

@@ -1,5 +1,4 @@
 import 'package:darmbank/app/controllers/auth_controller.dart';
-import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
@@ -40,11 +39,12 @@ class LoginView extends StatelessWidget {
               TextFieldWidget(
                 label: 'Email',
                 hintText: 'maicon@gmail.com',
-                controller: controller.email,
+                onChanged: controller.email,
               ),
               TextFieldWidget(
                 label: 'Senha',
-                controller: controller.password,
+                hintText: '********',
+                onChanged: controller.password,
               ),
               Row(
                 children: [
@@ -54,7 +54,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(title: "Entrar", onPressed: () => null),
+              Button(title: "Entrar", onPressed: () => print(controller.email)),
             ],
           ),
         ),
