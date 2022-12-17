@@ -2,8 +2,8 @@
 
 abstract class Routes {
   static const INITIAL = '/';
-  static const LOGIN = '/login';
-  static const REGISTER = '/register';
+  static const SIGN_IN = '/signIn';
+  static const SIGN_UP = '/signUp';
   static const MAIN = '/main';
   static const REGISTER_CARD = '/main/register_credit_card';
   static const PASSWORD = '/forgot-password';

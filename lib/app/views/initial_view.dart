@@ -18,8 +18,8 @@ class InitialView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: MediaQuery.of(context).viewPadding.top,
                 ),
                 const Image(
                   image: AssetImage('assets/images/icon_logo.png'),
@@ -58,24 +58,24 @@ class InitialView extends StatelessWidget {
                 color: Theme.of(context).backgroundColor,
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 100,
+                  ),
                   Button(
                     title: 'Criar uma conta',
                     onPressed: () =>
-                        Navigator.of(context).pushNamed(Routes.REGISTER),
+                        Navigator.of(context).pushNamed(Routes.SIGN_UP),
                   ),
                   TextButton(
                     onPressed: () =>
-                        Navigator.of(context).pushNamed(Routes.LOGIN),
+                        Navigator.of(context).pushNamed(Routes.SIGN_IN),
                     child: const Text('Já possui conta?'),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: const Text('Entrar como adm'),
-                  ),
-                  const SizedBox(
-                    height: 50,
                   ),
                 ],
               ),

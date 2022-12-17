@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  final Key? key;
   final TextEditingController? controller;
   final String label;
   final String? hintText;
@@ -15,6 +16,7 @@ class TextFieldWidget extends StatelessWidget {
   final int? maxLenght;
 
   const TextFieldWidget({
+    this.key,
     this.controller,
     required this.label,
     this.width,
@@ -26,7 +28,6 @@ class TextFieldWidget extends StatelessWidget {
     this.textAlign,
     this.inputFormatters,
     this.maxLenght,
-    super.key,
   });
 
   @override
@@ -51,6 +52,7 @@ class TextFieldWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: TextFormField(
+                key: key,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),

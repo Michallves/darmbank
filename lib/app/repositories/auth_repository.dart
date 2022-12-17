@@ -1,7 +1,8 @@
 import 'dart:convert';
+import 'package:darmbank/app/exceptions/auth_exception.dart';
 import 'package:http/http.dart' as http;
 
-class AuthServices {
+class AuthRepository {
   Future<void> _authenticate(
       String email, String password, String urlFragment) async {
     final url =
@@ -9,14 +10,19 @@ class AuthServices {
     final response = await http.post(Uri.parse(url),
         body: jsonEncode(
             {'email': email, 'password': password, 'returnSecureToken': true}));
-    print(jsonDecode(response.body));
+
+    final body = jsonDecode(response.body);
+
+    if (body['error'] != null) {
+      throw AuthException(body['error']['message']);
+    }
   }
 
   Future<void> signUp({required String email, required String password}) async {
-    _authenticate(email, password, 'signUp');
+    return _authenticate(email, password, 'signUp');
   }
 
   Future<void> signIn({required String email, required String password}) async {
-    _authenticate(email, password, 'signInWithPassword');
+    return _authenticate(email, password, 'signInWithPassword');
   }
 }

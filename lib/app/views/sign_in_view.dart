@@ -1,3 +1,4 @@
+import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,8 @@ import 'package:get_it/get_it.dart';
 
 import '../controllers/auth_controller.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignIn extends StatelessWidget {
+  const SignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +39,13 @@ class LoginView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFieldWidget(
+                key: controller.formKey,
                 label: 'Email',
                 hintText: 'maicon@gmail.com',
                 controller: controller.email,
               ),
               TextFieldWidget(
+                key: controller.formKey,
                 label: 'Senha',
                 hintText: '********',
                 controller: controller.password,
@@ -55,7 +58,10 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              Button(title: "Entrar", onPressed: () => controller.signIn()),
+              Button(
+                  title: "Entrar",
+                  onPressed: () => controller.signIn().then((_) =>
+                      Navigator.of(context).pushReplacementNamed(Routes.MAIN))),
             ],
           ),
         ),
