@@ -1,3 +1,4 @@
+import 'package:darmbank/app/views/my_credit_cards_view.dart';
 import 'package:darmbank/app/views/user_profile_view.dart';
 import 'package:darmbank/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MainViewState extends State<MainView> {
     HomeView(),
     HomeView(),
     HomeView(),
-    HomeView(),
+    MyCreditCardsView(),
     UserProfileView(),
   ];
 
