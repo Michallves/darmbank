@@ -13,13 +13,13 @@ mixin _$AuthController on _AuthController, Store {
       Atom(name: '_AuthController.formKey', context: context);
 
   @override
-  GlobalKey<State<StatefulWidget>> get formKey {
+  GlobalKey<FormState> get formKey {
     _$formKeyAtom.reportRead();
     return super.formKey;
   }
 
   @override
-  set formKey(GlobalKey<State<StatefulWidget>> value) {
+  set formKey(GlobalKey<FormState> value) {
     _$formKeyAtom.reportWrite(value, super.formKey, () {
       super.formKey = value;
     });
@@ -57,6 +57,15 @@ mixin _$AuthController on _AuthController, Store {
     });
   }
 
+  late final _$buttonLoginPressedAsyncAction =
+      AsyncAction('_AuthController.buttonLoginPressed', context: context);
+
+  @override
+  Future<String?> buttonLoginPressed() {
+    return _$buttonLoginPressedAsyncAction
+        .run(() => super.buttonLoginPressed());
+  }
+
   late final _$signUpAsyncAction =
       AsyncAction('_AuthController.signUp', context: context);
 
@@ -71,20 +80,6 @@ mixin _$AuthController on _AuthController, Store {
   @override
   Future<void> signIn() {
     return _$signInAsyncAction.run(() => super.signIn());
-  }
-
-  late final _$_AuthControllerActionController =
-      ActionController(name: '_AuthController', context: context);
-
-  @override
-  void validator() {
-    final _$actionInfo = _$_AuthControllerActionController.startAction(
-        name: '_AuthController.validator');
-    try {
-      return super.validator();
-    } finally {
-      _$_AuthControllerActionController.endAction(_$actionInfo);
-    }
   }
 
   @override

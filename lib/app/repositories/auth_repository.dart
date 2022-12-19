@@ -3,6 +3,7 @@ import 'package:darmbank/app/exceptions/auth_exception.dart';
 import 'package:http/http.dart' as http;
 
 class AuthRepository {
+  ///Pode causar AuthException
   Future<void> _authenticate(
       String email, String password, String urlFragment) async {
     final url =
@@ -19,10 +20,10 @@ class AuthRepository {
   }
 
   Future<void> signUp({required String email, required String password}) async {
-    return _authenticate(email, password, 'signUp');
+    return await _authenticate(email, password, 'signUp');
   }
 
   Future<void> signIn({required String email, required String password}) async {
-    return _authenticate(email, password, 'signInWithPassword');
+    return await _authenticate(email, password, 'signInWithPassword');
   }
 }

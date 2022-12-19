@@ -1,3 +1,4 @@
+import 'package:darmbank/app/models/validators.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
@@ -7,6 +8,15 @@ import 'package:get_it/get_it.dart';
 import '../controllers/auth_controller.dart';
 
 class SignIn extends StatelessWidget {
+  void _buttonLoginPressed(AuthController controller, BuildContext context) {
+    controller.buttonLoginPressed().then((error) {
+      error == null
+          ? Navigator.of(context).pushReplacementNamed(Routes.MAIN)
+          : ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(error)));
+    });
+  }
+
   const SignIn({super.key});
 
   @override
@@ -35,34 +45,37 @@ class SignIn extends StatelessWidget {
             ),
             color: Theme.of(context).backgroundColor,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFieldWidget(
-                key: controller.formKey,
-                label: 'Email',
-                hintText: 'maicon@gmail.com',
-                controller: controller.email,
-              ),
-              TextFieldWidget(
-                key: controller.formKey,
-                label: 'Senha',
-                hintText: '********',
-                controller: controller.password,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Esqueceu sua senha?",
-                    style: Theme.of(context).textTheme.labelSmall,
-                  ),
-                ],
-              ),
-              Button(
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFieldWidget(
+                  label: 'Email',
+                  hintText: 'maicon@gmail.com',
+                  controller: controller.email,
+                  validator: (text) => Validators.emailValidator(text),
+                ),
+                TextFieldWidget(
+                  label: 'Senha',
+                  hintText: '********',
+                  controller: controller.password,
+                  validator: (text) => Validators.passwordValidator(text),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Esqueceu sua senha?",
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                  ],
+                ),
+                Button(
                   title: "Entrar",
-                  onPressed: () => controller.signIn().then((_) =>
-                      Navigator.of(context).pushReplacementNamed(Routes.MAIN))),
-            ],
+                  onPressed: () => _buttonLoginPressed(controller, context),
+                ),
+              ],
+            ),
           ),
         ),
       ),

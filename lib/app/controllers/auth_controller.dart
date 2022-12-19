@@ -1,6 +1,5 @@
 import 'package:darmbank/app/exceptions/auth_exception.dart';
 import 'package:darmbank/app/repositories/auth_repository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
@@ -12,7 +11,7 @@ var auth = GetIt.I<AuthRepository>();
 
 abstract class _AuthController with Store {
   @observable
-  GlobalKey formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @observable
   TextEditingController email = TextEditingController();
@@ -20,10 +19,19 @@ abstract class _AuthController with Store {
   TextEditingController password = TextEditingController();
 
   @action
-  void validator() {
-    if (formKey.currentState!.validate()) {
-      const ScaffoldMessenger(
-          child: SnackBar(content: Text('Processing Data')));
+  Future<String?> buttonLoginPressed() async {
+    bool isValid = formKey.currentState!.validate();
+
+    if (!isValid) {
+      return "Acho que as informações que você me deu são inválidas!";
+    }
+
+    const ScaffoldMessenger(child: SnackBar(content: Text('Processing Data')));
+
+    try {
+      await signIn();
+    } on AuthException catch (error) {
+      return error.toString();
     }
   }
 
@@ -32,6 +40,7 @@ abstract class _AuthController with Store {
     await auth.signUp(email: email.text, password: password.text);
   }
 
+  ///Pode jogar AuthException
   @action
   Future<void> signIn() async {
     await auth.signIn(email: email.text, password: password.text);
