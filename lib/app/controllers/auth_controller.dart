@@ -1,3 +1,4 @@
+import 'package:darmbank/app/controllers/signup_screen_controller.dart';
 import 'package:darmbank/app/exceptions/auth_exception.dart';
 import 'package:darmbank/app/repositories/auth_repository.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class AuthController = _AuthController with _$AuthController;
 var auth = GetIt.I<AuthRepository>();
 
 abstract class _AuthController with Store {
+  final signUpScreen = SignUpScreenController();
+
   @observable
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

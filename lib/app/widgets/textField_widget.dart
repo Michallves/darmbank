@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  final Key? key;
   final TextEditingController? controller;
   final String label;
   final String? hintText;
@@ -14,9 +13,10 @@ class TextFieldWidget extends StatelessWidget {
   final TextAlign? textAlign;
   final List<TextInputFormatter>? inputFormatters;
   final int? maxLenght;
+  final bool? obscureText;
 
   const TextFieldWidget({
-    this.key,
+    super.key,
     this.controller,
     required this.label,
     this.width,
@@ -28,6 +28,7 @@ class TextFieldWidget extends StatelessWidget {
     this.textAlign,
     this.inputFormatters,
     this.maxLenght,
+    this.obscureText,
   });
 
   @override
@@ -70,6 +71,8 @@ class TextFieldWidget extends StatelessWidget {
                 keyboardType: keyboardType,
                 maxLength: maxLenght,
                 onSaved: onSaved,
+                obscureText: obscureText ?? false,
+                obscuringCharacter: "+",
                 textAlign: textAlign ?? TextAlign.left,
                 style: const TextStyle(
                   fontSize: 16,

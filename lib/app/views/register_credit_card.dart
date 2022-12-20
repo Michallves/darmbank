@@ -26,43 +26,47 @@ class RegisterCreditCard extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CreditCard(
-            width: MediaQuery.of(context).size.width * 0.92,
-          ),
-          const TextFieldWidget(
-            label: "Nome Completo",
-            hintText: "seu nome",
-          ),
-          const TextFieldWidget(
-            label: "Número do cartão",
-            hintText: "XXXX XXXX XXXX XXXX",
-          ),
-          Row(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TextFieldWidget(
-                label: "Data de validade",
-                hintText: "00/0000",
-                width: MediaQuery.of(context).size.width * 0.28,
-                textAlign: TextAlign.center,
-                maxLenght: 6,
+              CreditCard(
+                width: MediaQuery.of(context).size.width * 0.92,
               ),
-              TextFieldWidget(
-                label: "CVC",
-                hintText: "000",
-                width: MediaQuery.of(context).size.width * 0.15,
-                textAlign: TextAlign.center,
-                maxLenght: 3,
+              const TextFieldWidget(
+                label: "Nome Completo",
+                hintText: "seu nome",
               ),
+              const TextFieldWidget(
+                label: "Número do cartão",
+                hintText: "XXXX XXXX XXXX XXXX",
+              ),
+              Row(
+                children: [
+                  TextFieldWidget(
+                    label: "Data de validade",
+                    hintText: "00/0000",
+                    width: MediaQuery.of(context).size.width * 0.28,
+                    textAlign: TextAlign.center,
+                    maxLenght: 6,
+                  ),
+                  TextFieldWidget(
+                    label: "CVC",
+                    hintText: "000",
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    textAlign: TextAlign.center,
+                    maxLenght: 3,
+                  ),
+                ],
+              ),
+              Button(
+                  title: "Finalizar cadastro",
+                  onPressed: () => Navigator.of(context).pop()),
             ],
           ),
-          Button(
-              title: "Finalizar cadastro",
-              onPressed: () => Navigator.of(context).pop()),
-        ],
+        ),
       ),
     );
   }

@@ -31,7 +31,7 @@ class App extends StatelessWidget {
       title: 'Darm Bank',
       debugShowCheckedModeBanner: false,
       theme: appThemeData,
-      initialRoute: Routes.MAIN,
+      initialRoute: Routes.INITIAL,
       routes: {
         Routes.INITIAL: (context) => const InitialView(),
         Routes.SIGN_IN: (context) => const SignIn(),
