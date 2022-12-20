@@ -1,4 +1,5 @@
 import 'package:darmbank/app/controllers/auth_controller.dart';
+import 'package:darmbank/app/controllers/main_screen_controller.dart';
 import 'package:darmbank/app/repositories/auth_repository.dart';
 import 'package:darmbank/app/theme/app_theme.dart';
 import 'package:darmbank/app/utils/app_routes.dart';
@@ -15,6 +16,7 @@ void main() async {
   final GetIt getIt = GetIt.I;
   getIt.registerSingleton<AuthController>(AuthController());
   getIt.registerSingleton<AuthRepository>(AuthRepository());
+  getIt.registerSingleton<MainScreenController>(MainScreenController());
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const App());
