@@ -55,6 +55,7 @@ flutter:
       fonts:
       - asset: assets/fonts/Poppins-Regular.ttf
 
+# Icone do APP
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -62,6 +63,7 @@ flutter_icons:
   min_sdk_android: 21 # android min sdk min:16, default 21
   adaptive_icon_background: "#9747FF"
 
+# Splashscreen
 flutter_native_splash:
   color: "#9747FF"
   image: assets/images/icon_app.png
