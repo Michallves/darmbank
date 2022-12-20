@@ -1,23 +1,14 @@
-import 'package:darmbank/app/views/my_credit_cards_view.dart';
-import 'package:darmbank/app/views/user_profile_view.dart';
-import 'package:darmbank/app/widgets/custom_bottom_navigation_bar.dart';
+import 'package:darmbank/app/models/custom_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
-import 'package:darmbank/app/controllers/main_screen_controller.dart';
 
-import 'home_view.dart';
+import 'package:darmbank/app/widgets/custom_bottom_navigation_bar.dart';
+import 'package:darmbank/app/controllers/main_screen_controller.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
-
-  final List<Widget> _tabs = const [
-    HomeView(),
-    HomeView(),
-    HomeView(),
-    MyCreditCardsView(),
-    UserProfileView(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,44 +17,55 @@ class MainView extends StatelessWidget {
 
     return Observer(
       builder: (context) => Scaffold(
-        body: _tabs[controller.tabIndex],
+        body: controller.tab,
         bottomNavigationBar: CustomBottomNavBar(
           currentIndex: controller.tabIndex,
           onTap: (index) => controller.changeTab(index),
           items: [
             CustomNavBarItem(
-              icon: const Icon(Icons.home_outlined),
+              icon: SvgPicture.asset(CustomIcons.home),
               label: "Home",
-              activeIcon:
-                  Icon(Icons.home_rounded, color: theme.colorScheme.onPrimary),
+              activeIcon: SvgPicture.asset(
+                CustomIcons.home,
+                color: theme.colorScheme.onPrimary,
+              ),
               bubbleColor: theme.colorScheme.primary,
             ),
             CustomNavBarItem(
-              icon: const Icon(Icons.notifications_outlined),
+              icon: SvgPicture.asset(CustomIcons.notification),
               label: "Notificações",
-              activeIcon:
-                  Icon(Icons.notifications, color: theme.colorScheme.onPrimary),
+              activeIcon: SvgPicture.asset(
+                CustomIcons.notification,
+                color: theme.colorScheme.onPrimary,
+              ),
               bubbleColor: theme.colorScheme.primary,
             ),
             CustomNavBarItem(
-              icon: const Icon(Icons.qr_code_scanner_outlined),
+              icon: SvgPicture.asset(CustomIcons.scanner),
               label: "Scanner",
-              activeIcon: Icon(Icons.qr_code_scanner,
-                  color: theme.colorScheme.onPrimary),
+              activeIcon: SvgPicture.asset(
+                CustomIcons.scanner,
+                color: theme.colorScheme.onPrimary,
+              ),
               bubbleColor: theme.colorScheme.primary,
             ),
             CustomNavBarItem(
-              icon: const Icon(Icons.credit_card_outlined),
+              //icon: const Icon(Icons.credit_card_outlined),
+              icon: SvgPicture.asset(CustomIcons.credit_card),
               label: "Cartões",
-              activeIcon:
-                  Icon(Icons.credit_card, color: theme.colorScheme.onPrimary),
+              activeIcon: SvgPicture.asset(
+                CustomIcons.credit_card,
+                color: theme.colorScheme.onPrimary,
+              ),
               bubbleColor: theme.colorScheme.primary,
             ),
             CustomNavBarItem(
-              icon: const Icon(Icons.person_outline),
+              icon: SvgPicture.asset(CustomIcons.person),
               label: "Perfil",
-              activeIcon:
-                  Icon(Icons.person, color: theme.colorScheme.onPrimary),
+              activeIcon: SvgPicture.asset(
+                CustomIcons.person,
+                color: theme.colorScheme.onPrimary,
+              ),
               bubbleColor: theme.colorScheme.primary,
             ),
           ],
