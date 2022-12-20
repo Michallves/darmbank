@@ -11,7 +11,7 @@ part 'sign_up_controller.g.dart';
 class SignUpController = _SignUpController with _$SignUpController;
 
 abstract class _SignUpController with Store {
-  final AuthService repository = AuthService();
+  final AuthService auth = AuthService();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final name = TextEditingController();
@@ -47,6 +47,6 @@ abstract class _SignUpController with Store {
 
   @action
   Future<void> signUp() async {
-    await repository.signUp(email: email.text, password: password.text);
+    await auth.signUp(email: email.text, password: password.text);
   }
 }

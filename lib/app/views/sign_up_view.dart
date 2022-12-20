@@ -6,14 +6,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_up_controller.dart';
-import '../routes/app_routes.dart';
+
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignUpController());
+    final controller = Get.find<SignUpController>();
     final theme = Get.theme;
 
     return Scaffold(
@@ -40,13 +40,18 @@ class SignUp extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const TextFieldWidget(label: "Nome completo"),
-                      const TextFieldWidget(
+                      TextFieldWidget(
+                        label: "Nome completo",
+                        controller: controller.name,
+                      ),
+                      TextFieldWidget(
                         label: "Email",
                         keyboardType: TextInputType.emailAddress,
+                        controller: controller.email,
                       ),
                       TextFieldWidget(
                         label: "CPF",
+                        controller: controller.cpf,
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
                         ],
@@ -54,16 +59,22 @@ class SignUp extends StatelessWidget {
                       ),
                       TextFieldWidget(
                         label: "Telefone",
+                        controller: controller.telephone,
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
                         ],
                         keyboardType: TextInputType.number,
                       ),
-                      const TextFieldWidget(
+                      TextFieldWidget(
                         label: "Senha",
                         obscureText: true,
+                        controller: controller.password,
                       ),
-                      const TextFieldWidget(label: "Confirmar senha"),
+                      TextFieldWidget(
+                        label: "Confirmar senha",
+                        obscureText: true,
+                        controller: controller.confirmPassword,
+                      ),
                       Observer(builder: (context) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(
@@ -86,10 +97,9 @@ class SignUp extends StatelessWidget {
                                       children: [
                                         Radio<String>(
                                           value: AccountType.checking,
-                                          groupValue: controller
-                                              .accountType,
-                                          onChanged: controller
-                                              .changeAcountType,
+                                          groupValue: controller.accountType,
+                                          onChanged:
+                                              controller.changeAcountType,
                                           activeColor:
                                               theme.colorScheme.primary,
                                         ),
@@ -106,10 +116,8 @@ class SignUp extends StatelessWidget {
                                     ),
                                     Radio<String>(
                                       value: AccountType.savings,
-                                      groupValue:
-                                          controller.accountType,
-                                      onChanged: controller
-                                          .changeAcountType,
+                                      groupValue: controller.accountType,
+                                      onChanged: controller.changeAcountType,
                                       activeColor: theme.colorScheme.primary,
                                       hoverColor: theme.colorScheme.tertiary,
                                     ),
@@ -134,8 +142,7 @@ class SignUp extends StatelessWidget {
                 ),
                 Button(
                   title: "Finalizar cadastro",
-                  onPressed: () =>
-                      controller.signUp(),
+                  onPressed: () => controller.signUp(),
                 ),
               ],
             ),

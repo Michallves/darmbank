@@ -9,7 +9,7 @@ part 'sign_in_controller.g.dart';
 class SignInController = _SignInController with _$SignInController;
 
 abstract class _SignInController with Store {
-  final AuthService repository = AuthService();
+  final AuthService auth = AuthService();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final email = TextEditingController();
@@ -35,6 +35,6 @@ abstract class _SignInController with Store {
   ///Pode jogar AuthException
   @action
   Future<void> signIn() async {
-    await repository.signIn(email: email.text, password: password.text);
+    await auth.signIn(email: email.text, password: password.text);
   }
 }
