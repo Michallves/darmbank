@@ -18,8 +18,8 @@ dependencies:
 
   flutter_native_splash: ^2.2.16
   flutter_launcher_icons: "^0.11.0"
-  
-  get_it:
+
+  get: ^4.6.5
   mobx:
   flutter_mobx:
 

@@ -2,8 +2,7 @@ import 'package:darmbank/app/models/custom_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get_it/get_it.dart';
-
+import 'package:get/get.dart';
 import 'package:darmbank/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:darmbank/app/controllers/main_screen_controller.dart';
 
@@ -13,7 +12,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final controller = GetIt.I.get<MainScreenController>();
+    final controller = Get.put(MainScreenController());
 
     return Observer(
       builder: (context) => Scaffold(

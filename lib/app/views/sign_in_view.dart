@@ -1,27 +1,16 @@
 import 'package:darmbank/app/models/validators.dart';
-import 'package:darmbank/app/utils/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-
-import '../controllers/auth_controller.dart';
+import 'package:get/get.dart';
+import '../controllers/sign_in_controller.dart';
 
 class SignIn extends StatelessWidget {
-  void _buttonLoginPressed(AuthController controller, BuildContext context) {
-    controller.buttonLoginPressed().then((error) {
-      error == null
-          ? Navigator.of(context).pushReplacementNamed(Routes.MAIN)
-          : ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(error)));
-    });
-  }
-
   const SignIn({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = GetIt.I.get<AuthController>();
+    final controller = Get.find<SignInController>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -72,7 +61,7 @@ class SignIn extends StatelessWidget {
                 ),
                 Button(
                   title: "Entrar",
-                  onPressed: () => _buttonLoginPressed(controller, context),
+                  onPressed: () => controller.buttonSignInPressed(),
                 ),
               ],
             ),

@@ -1,4 +1,4 @@
-import 'package:darmbank/app/utils/app_routes.dart';
+import 'package:darmbank/app/routes/app_routes.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:flutter/material.dart';
 
