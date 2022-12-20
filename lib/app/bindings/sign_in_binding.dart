@@ -1,4 +1,4 @@
-import 'package:darmbank/app/provider/auth_provider.dart';
+import 'package:darmbank/app/services/auth_service.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_in_controller.dart';
 

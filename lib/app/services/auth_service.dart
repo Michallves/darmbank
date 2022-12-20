@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:darmbank/app/exceptions/auth_exception.dart';
 import 'package:http/http.dart' as http;
 
-class AuthApiClient {
+class AuthService {
   String? _token;
   String? _email;
   String? _uid;
@@ -48,11 +48,11 @@ class AuthApiClient {
     }
   }
 
-  Future<void> signUp(String email, String password) async {
+  Future<void> signUp({required String email, required String password}) async {
     return await _authenticate(email, password, 'signUp');
   }
 
-  Future<void> signIn(String email, String password) async {
+  Future<void> signIn({required String email, required String password}) async {
     return await _authenticate(email, password, 'signInWithPassword');
   }
 }

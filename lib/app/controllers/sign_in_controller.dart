@@ -1,5 +1,5 @@
 import 'package:darmbank/app/exceptions/auth_exception.dart';
-import 'package:darmbank/app/repository/auth_repository.dart';
+import 'package:darmbank/app/services/auth_service.dart';
 import 'package:darmbank/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,7 @@ part 'sign_in_controller.g.dart';
 class SignInController = _SignInController with _$SignInController;
 
 abstract class _SignInController with Store {
-  final AuthRepository repository = AuthRepository();
+  final AuthService repository = AuthService();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final email = TextEditingController();

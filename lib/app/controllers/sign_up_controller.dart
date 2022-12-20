@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:mobx/mobx.dart';
 
 import '../exceptions/auth_exception.dart';
-import '../repository/auth_repository.dart';
+import '../services/auth_service.dart';
 import '../routes/app_routes.dart';
 part 'sign_up_controller.g.dart';
 
 class SignUpController = _SignUpController with _$SignUpController;
 
 abstract class _SignUpController with Store {
-  final AuthRepository repository = AuthRepository();
+  final AuthService repository = AuthService();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final name = TextEditingController();
