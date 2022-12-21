@@ -36,17 +36,17 @@ abstract class _SignUpController with Store {
       return;
     }
 
-    try {
-      //await signUp().then((_) => Get.offNamed(Routes.MAIN));
-      await signUp();
-    } on AuthException catch (error) {
-      Get.snackbar(
-        'Erro:',
-        error.toString(),
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return;
-    }
+    // try {
+    //   //await signUp().then((_) => Get.offNamed(Routes.MAIN));
+    //   await signUp();
+    // } on AuthException catch (error) {
+    //   Get.snackbar(
+    //     'Erro:',
+    //     error.toString(),
+    //     snackPosition: SnackPosition.BOTTOM,
+    //   );
+    //   return;
+    // }
 
     Get.bottomSheet(
       const SignUpBottomSheet(),

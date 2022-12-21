@@ -1,6 +1,8 @@
 import 'package:darmbank/app/routes/app_routes.dart';
+import 'package:darmbank/app/views/register_credit_card.dart';
 import 'package:darmbank/app/widgets/creditCard.dart';
 import 'package:darmbank/app/widgets/creditCardButton.dart';
+import 'package:darmbank/app/widgets/fullscreen_dismissable_modal.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -63,8 +65,13 @@ class HomeView extends StatelessWidget {
                       ),
                       CCButton(
                         text: "cadastrar cartão",
-                        click: () => Navigator.of(context)
-                            .pushNamed(Routes.REGISTER_CARD),
+                        // click: () => Navigator.of(context)
+                        //     .pushNamed(Routes.REGISTER_CARD),
+                        click: () => Navigator.of(context).push(
+                          FullScreenDismissableModal(
+                            child: const RegisterCreditCard(),
+                          ),
+                        ),
                       ),
                       CCButton(
                         text: "cartões solicitados",
