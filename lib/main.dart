@@ -4,9 +4,7 @@ import 'package:darmbank/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const App());
@@ -23,7 +21,6 @@ class App extends StatelessWidget {
       theme: appThemeData,
       initialRoute: Routes.INITIAL,
       getPages: AppPages.routes,
-      
     );
   }
 }

@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  const Button({super.key, required this.title, required this.onPressed});
+  const Button({
+    super.key,
+    required this.title,
+    required this.onPressed,
+    this.margin,
+  });
 
   final String title;
   final void Function()? onPressed;
+  final EdgeInsets? margin;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 50,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      margin: margin ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(

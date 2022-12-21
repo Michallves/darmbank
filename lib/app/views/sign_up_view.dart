@@ -7,7 +7,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_up_controller.dart';
 
-
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
@@ -142,7 +141,7 @@ class SignUp extends StatelessWidget {
                 ),
                 Button(
                   title: "Finalizar cadastro",
-                  onPressed: () => controller.signUp(),
+                  onPressed: () => controller.buttonSignUpPressed(),
                 ),
               ],
             ),
@@ -151,4 +150,64 @@ class SignUp extends StatelessWidget {
       ),
     );
   }
+
+  // static void showModalBottom(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     backgroundColor: Colors.transparent,
+  //     isDismissible: false,
+  //     enableDrag: false,
+  //     builder: (context) {
+  //       return Container(
+  //         padding:
+  //             const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 50),
+  //         height: MediaQuery.of(context).size.height * 0.40,
+  //         decoration: BoxDecoration(
+  //           boxShadow: [
+  //             BoxShadow(
+  //               color: Theme.of(context).colorScheme.primary,
+  //               spreadRadius: -1,
+  //               offset: const Offset(0, -6),
+  //             )
+  //           ],
+  //           color: Theme.of(context).colorScheme.onPrimary,
+  //           borderRadius: const BorderRadius.only(
+  //             topLeft: Radius.circular(35),
+  //             topRight: Radius.circular(35),
+  //           ),
+  //         ),
+  //         child: Column(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             const Text(
+  //               "Parabéns você acaba de facilitar sua vida",
+  //               style: TextStyle(
+  //                 fontSize: 40,
+  //                 color: Colors.black,
+  //                 fontWeight: FontWeight.w600,
+  //                 fontFamily: "Montserrat",
+  //               ),
+  //             ),
+  //             SizedBox(
+  //               width: MediaQuery.of(context).size.width * 0.6,
+  //               child: const Text(
+  //                 "Que tal conferir nossas funcionalidades agora?",
+  //                 style: TextStyle(fontSize: 18, color: Colors.black),
+  //               ),
+  //             ),
+  //             Button(
+  //               margin: const EdgeInsets.all(0),
+  //               title: "Página Inicial",
+  //               onPressed: () {
+  //                 Navigator.of(context).popUntil((route) => route.isFirst);
+  //                 Navigator.of(context).pushReplacementNamed(Routes.MAIN);
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }

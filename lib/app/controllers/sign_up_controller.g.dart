@@ -29,7 +29,7 @@ mixin _$SignUpController on _SignUpController, Store {
       AsyncAction('_SignUpController.buttonSignUpPressed', context: context);
 
   @override
-  Future<String?> buttonSignUpPressed() {
+  Future<void> buttonSignUpPressed() {
     return _$buttonSignUpPressedAsyncAction
         .run(() => super.buttonSignUpPressed());
   }

@@ -1,11 +1,11 @@
 import 'package:darmbank/app/models/account_type.dart';
+import 'package:darmbank/app/widgets/sign_up_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobx/mobx.dart';
 
 import '../exceptions/auth_exception.dart';
 import '../services/auth_service.dart';
-import '../routes/app_routes.dart';
 part 'sign_up_controller.g.dart';
 
 class SignUpController = _SignUpController with _$SignUpController;
@@ -29,20 +29,31 @@ abstract class _SignUpController with Store {
   }
 
   @action
-  Future<String?> buttonSignUpPressed() async {
+  Future<void> buttonSignUpPressed() async {
     bool isValid = formKey.currentState!.validate();
 
     if (!isValid) {
-      return "Acho que as informações que você me deu são inválidas!";
+      return;
     }
 
     try {
-      await signUp().then((_) => Get.offNamed(Routes.MAIN));
+      //await signUp().then((_) => Get.offNamed(Routes.MAIN));
+      await signUp();
     } on AuthException catch (error) {
-      Get.snackbar('Erro:', error.toString(),
-          snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar(
+        'Erro:',
+        error.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
     }
-    return null;
+
+    Get.bottomSheet(
+      const SignUpBottomSheet(),
+      backgroundColor: Colors.transparent,
+      isDismissible: false,
+      enableDrag: false,
+    );
   }
 
   @action
