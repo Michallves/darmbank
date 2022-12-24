@@ -1,7 +1,9 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:darmbank/app/models/validators.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_in_controller.dart';
 
@@ -40,10 +42,15 @@ class SignIn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFieldWidget(
-                  label: 'Email',
-                  hintText: 'maicon@gmail.com',
-                  controller: controller.email,
-                  validator: (text) => Validators.emailValidator(text),
+                  label: 'CPF',
+                  hintText: '000.000.000-00',
+                  controller: controller.cpf,
+                  validator: (text) => Validators.cpfValidator(text),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    CpfInputFormatter()
+                  ],
+                  keyboardType: TextInputType.number,
                 ),
                 TextFieldWidget(
                   label: 'Senha',

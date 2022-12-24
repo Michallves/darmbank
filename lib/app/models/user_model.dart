@@ -1,38 +1,49 @@
+import 'package:darmbank/app/models/address_model.dart';
+
 class UserModel {
-  final String? userId;
-  final String? name;
-  final String? email;
+  final String? uid;
   final String? cpf;
+  final String? email;
+  final String? name;
+  final String? photoUrl;
+  final AddressModel? address;
   final String? telephone;
   final String? accountType;
-  final String? imageUrl;
+
+  final String? password;
+  final String? confirmPassword;
 
   UserModel(
-      {this.userId,
-      this.name,
-      this.email,
+      {this.uid,
       this.cpf,
-      this.imageUrl,
+      this.email,
+      this.name,
+      this.photoUrl,
+      this.address,
       this.telephone,
-      this.accountType});
+      this.accountType,
+      this.password,
+      this.confirmPassword});
 
   factory UserModel.fromMap(Map<String, dynamic> json) => UserModel(
-        userId: json["userId"],
-        name: json["name"],
-        email: json["email"],
+        uid: json["uid"],
         cpf: json["cpf"],
+        email: json["email"],
+        name: json["name"],
+        address: json["address"],
         telephone: json["telephone"],
         accountType: json["accountType"],
-        imageUrl: json["imageUrl"],
+        photoUrl: json["photoUrl"],
       );
 
   Map<String, dynamic> toMap() => {
-        "userId": userId,
-        "name": name,
-        "email": email,
+        "uid": uid,
         "cpf": cpf,
+        "email": email,
+        "name": name,
+        "address": address,
         "telephone": telephone,
         "accountType": accountType,
-        "imageUrl": imageUrl,
+        "photoUrl": photoUrl,
       };
 }

@@ -1,4 +1,5 @@
 import 'package:darmbank/app/exceptions/auth_exception.dart';
+import 'package:darmbank/app/models/user_model.dart';
 import 'package:darmbank/app/services/auth_service.dart';
 import 'package:darmbank/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ abstract class _SignInController with Store {
   final AuthService auth = AuthService();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final email = TextEditingController();
+  final cpf = TextEditingController();
   final password = TextEditingController();
 
   @action
@@ -35,6 +36,6 @@ abstract class _SignInController with Store {
   ///Pode jogar AuthException
   @action
   Future<void> signIn() async {
-    await auth.signIn(email: email.text, password: password.text);
+    await auth.signIn(UserModel(cpf: cpf.text, password: password.text));
   }
 }

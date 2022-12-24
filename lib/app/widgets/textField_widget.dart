@@ -81,7 +81,6 @@ class TextFieldWidget extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
                 inputFormatters: inputFormatters,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
             ),
           ],

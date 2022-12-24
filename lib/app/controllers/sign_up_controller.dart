@@ -1,4 +1,6 @@
 import 'package:darmbank/app/models/account_type.dart';
+import 'package:darmbank/app/models/address_model.dart';
+import 'package:darmbank/app/models/user_model.dart';
 import 'package:darmbank/app/widgets/sign_up_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -58,6 +60,15 @@ abstract class _SignUpController with Store {
 
   @action
   Future<void> signUp() async {
-    await auth.signUp(email: email.text, password: password.text);
+    await auth.signUp(UserModel(
+      cpf: cpf.text,
+      email: email.text,
+      name: name.text,
+      address: AddressModel(),
+      accountType: accountType,
+      telephone: telephone.text,
+      password: password.text,
+      confirmPassword: confirmPassword.text,
+    ));
   }
 }

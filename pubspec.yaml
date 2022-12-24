@@ -22,7 +22,7 @@ dependencies:
   get: ^4.6.5
   mobx:
   flutter_mobx:
-
+  brasil_fields: ^1.9.0
   http: ^0.13.5
   flutter_svg: ^1.1.6
 

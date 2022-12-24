@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:darmbank/app/models/account_type.dart';
 import 'package:darmbank/app/widgets/button.dart';
 import 'package:darmbank/app/widgets/textField_widget.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_up_controller.dart';
+import '../models/validators.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -49,10 +51,13 @@ class SignUp extends StatelessWidget {
                         controller: controller.email,
                       ),
                       TextFieldWidget(
-                        label: "CPF",
+                        label: 'CPF',
+                        hintText: '000.000.000-00',
                         controller: controller.cpf,
+                        validator: (text) => Validators.cpfValidator(text),
                         inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly
+                          FilteringTextInputFormatter.digitsOnly,
+                          CpfInputFormatter()
                         ],
                         keyboardType: TextInputType.number,
                       ),
