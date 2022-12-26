@@ -1,28 +1,46 @@
 import 'package:get/get.dart';
 
 class Validators {
-  static String? cpfValidator(String? text) {
-    final userInput = text ?? "";
-    if (userInput.isEmpty) {
-      return "Campo obrigatório!";
-    } else if (!GetUtils.isCpf(text!)) {
-      return "Cpf inválido!";
+  static String? isNotEmpty(String? value) {
+    if (value!.isEmpty) {
+      return "Este campo é obrigatório";
     }
+    return null;
   }
 
-  static String? emailValidator(String? text) {
-    final userInput = text ?? "";
-    if (userInput.isEmpty) {
-      return "Campo obrigatório!";
-    } else if (!GetUtils.isEmail(text!)) {
-      return "Email inválido!";
+  static String? isCpf(String? value) {
+    if (!GetUtils.isCpf(value!)) {
+      return "Este cpf é inválido!";
     }
+    return null;
   }
 
-  static String? passwordValidator(String? text) {
-    final userInput = text ?? "";
-    if (userInput.isEmpty) {
-      return "Campo obrigatório!";
+  static String? isEmail(String? value) {
+    if (!GetUtils.isEmail(value!)) {
+      return "Este email é inválido!";
     }
+    return null;
+  }
+
+  static String? isTelephone(String? value) {
+    if (!GetUtils.isPhoneNumber(value!)) {
+      return "Este telefone é inválido!";
+    }
+    return null;
+  }
+
+  static String? isUserName(String? value) {
+    if (GetUtils.isUsername(value!)) {
+      return "Este nome é inválido!";
+    }
+    return null;
+  }
+
+  static String? combine(List<String? Function()> validators) {
+    for (final func in validators) {
+      final validation = func();
+      if (validation != null) return validation;
+    }
+    return null;
   }
 }

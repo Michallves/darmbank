@@ -8,6 +8,7 @@ class TextFieldWidget extends StatelessWidget {
   final double? width;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
   final void Function(String?)? onSaved;
   final EdgeInsets? margin;
   final TextAlign? textAlign;
@@ -23,6 +24,7 @@ class TextFieldWidget extends StatelessWidget {
     this.hintText,
     this.validator,
     this.keyboardType,
+    this.textInputAction,
     this.onSaved,
     this.margin,
     this.textAlign,
@@ -69,6 +71,7 @@ class TextFieldWidget extends StatelessWidget {
                 controller: controller,
                 validator: validator,
                 keyboardType: keyboardType,
+                textInputAction: textInputAction,
                 maxLength: maxLenght,
                 onSaved: onSaved,
                 obscureText: obscureText ?? false,

@@ -45,18 +45,24 @@ class SignIn extends StatelessWidget {
                   label: 'CPF',
                   hintText: '000.000.000-00',
                   controller: controller.cpf,
-                  validator: (text) => Validators.cpfValidator(text),
+                  validator: (value) => Validators.combine([
+                    () => Validators.isNotEmpty(value),
+                    () => Validators.isCpf(value)
+                  ]),
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
                     CpfInputFormatter()
                   ],
                   keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
                 ),
                 TextFieldWidget(
                   label: 'Senha',
                   hintText: '********',
                   controller: controller.password,
-                  validator: (text) => Validators.passwordValidator(text),
+                  validator: (value) =>
+                      Validators.combine([() => Validators.isNotEmpty(value)]),
+                  textInputAction: TextInputAction.done,
                 ),
                 Row(
                   children: [

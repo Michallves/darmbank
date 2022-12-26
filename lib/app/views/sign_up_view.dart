@@ -44,40 +44,67 @@ class SignUp extends StatelessWidget {
                       TextFieldWidget(
                         label: "Nome completo",
                         controller: controller.name,
+                        validator: (value) => Validators.combine([
+                          () => Validators.isNotEmpty(value),
+                          () => Validators.isUserName(value),
+                        ]),
+                        textInputAction: TextInputAction.next,
                       ),
                       TextFieldWidget(
                         label: "Email",
                         keyboardType: TextInputType.emailAddress,
                         controller: controller.email,
+                        validator: (value) => Validators.combine([
+                          () => Validators.isNotEmpty(value),
+                          () => Validators.isEmail(value),
+                        ]),
+                        textInputAction: TextInputAction.next,
                       ),
                       TextFieldWidget(
                         label: 'CPF',
                         hintText: '000.000.000-00',
                         controller: controller.cpf,
-                        validator: (text) => Validators.cpfValidator(text),
+                        validator: (value) => Validators.combine([
+                          () => Validators.isNotEmpty(value),
+                          () => Validators.isCpf(value),
+                        ]),
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
                           CpfInputFormatter()
                         ],
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                       ),
                       TextFieldWidget(
                         label: "Telefone",
+                        hintText: '(00) 00000-0000',
                         controller: controller.telephone,
+                        validator: (value) => Validators.combine([
+                          () => Validators.isNotEmpty(value),
+                          () => Validators.isTelephone(value),
+                        ]),
                         inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly
+                          FilteringTextInputFormatter.digitsOnly,
+                          TelefoneInputFormatter()
                         ],
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                       ),
                       TextFieldWidget(
                         label: "Senha",
                         obscureText: true,
                         controller: controller.password,
+                        validator: (value) => Validators.combine(
+                            [() => Validators.isNotEmpty(value)]),
+                        textInputAction: TextInputAction.next,
                       ),
                       TextFieldWidget(
                         label: "Confirmar senha",
                         obscureText: true,
                         controller: controller.confirmPassword,
+                        validator: (value) => Validators.combine(
+                            [() => Validators.isNotEmpty(value)]),
+                        textInputAction: TextInputAction.next,
                       ),
                       Observer(builder: (context) {
                         return Padding(
